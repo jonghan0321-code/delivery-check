@@ -6,15 +6,15 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest  # 여기가 핵심! 가상의 최신 맥 컴퓨터를 빌립니다.
+    runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4       # v3 -> v4 업데이트
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5   # v4 -> v5 업데이트
       with:
-        python-version: '3.10' # 3.10 버전 사용
+        python-version: '3.10'
 
     - name: Install dependencies
       run: |
@@ -23,11 +23,11 @@ jobs:
 
     - name: Build with PyInstaller
       run: |
-        # 맥용 실행 파일 만들기 명령어
+        # 맥용 실행 파일 만들기
         pyinstaller --onefile --noconsole --clean --name "DeliveryCheck_Mac" 배송재촉메일.py
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # 여기가 핵심! v3 -> v4로 변경 (에러 해결)
       with:
         name: Mac-App
-        path: dist/DeliveryCheck_Mac # 만들어진 파일 위치
+        path: dist/DeliveryCheck_Mac
