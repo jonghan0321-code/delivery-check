@@ -24,7 +24,7 @@ jobs:
     - name: Build with PyInstaller
       run: |
         # 맥용 실행 파일 만들기
-        pyinstaller --onefile --noconsole --clean --name "DeliveryCheck_Mac" 배송재촉메일.py
+        pyinstaller --onefile --noconsole --clean --name "Delivery요약_Mac" 맥용 파일코드.py
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4  # 여기가 핵심! v3 -> v4로 변경 (에러 해결)
