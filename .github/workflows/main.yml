@@ -23,7 +23,7 @@ jobs:
 
     - name: Build with PyInstaller
       run: |
-        pyinstaller --onefile --noconsole --clean --name "배송요약App_Mac" 맥용 파일코드.py
+        pyinstaller --onefile --noconsole --clean --name "배송요약App_Mac" "맥용 파일코드.py"
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
