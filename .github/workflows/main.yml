@@ -1,4 +1,4 @@
-name: Build macOS App
+name: Build macOS Apps
 
 on:
   push:
@@ -9,10 +9,10 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v4       # v3 -> v4 업데이트
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v5   # v4 -> v5 업데이트
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
@@ -23,11 +23,10 @@ jobs:
 
     - name: Build with PyInstaller
       run: |
-        # 맥용 실행 파일 만들기
-        pyinstaller --onefile --noconsole --clean --name "Delivery요약_Mac" 맥용 파일코드.py
+        pyinstaller --onefile --noconsole --clean --name "배송요약App_Mac" 맥용 파일코드.py
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v4  # 여기가 핵심! v3 -> v4로 변경 (에러 해결)
+      uses: actions/upload-artifact@v4
       with:
-        name: Mac-App
-        path: dist/DeliveryCheck_Mac
+        name: Mac-Apps
+        path: dist/
